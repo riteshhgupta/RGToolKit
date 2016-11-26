@@ -11,11 +11,11 @@ import UIKit
 
 private var containerViewAssociationKey = "containerViewAssociationKey"
 
-class ContainerView: UIView {}
+public class ContainerView: UIView {}
 
 extension ContainerView: ContentViewProvider {
 	
-	var contentView: UIView? {
+	public var contentView: UIView? {
 		get { return objc_getAssociatedObject(self, &containerViewAssociationKey) as? UIView }
 		set {
 			objc_setAssociatedObject(self, &containerViewAssociationKey, newValue, .OBJC_ASSOCIATION_RETAIN)

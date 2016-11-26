@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-typealias TapHandler = AnyType<() -> Void>
+public typealias TapHandler = AnyType<() -> Void>
 
-protocol Tapable {
+public protocol Tapable {
 	
 	var didTap: TapHandler? { get set }
 }
 
-protocol ContentViewProvider {
+public protocol ContentViewProvider {
 	
 	var contentView: UIView? { get set }
 }

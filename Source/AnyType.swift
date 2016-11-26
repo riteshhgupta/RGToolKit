@@ -8,11 +8,11 @@
 
 import Foundation
 
-class AnyType<T> {
+open class AnyType<T> {
 	
-	let value: T
+	open let value: T
 	
-	init(_ value: T) {
+	public init(_ value: T) {
 		self.value = value
 	}
 }

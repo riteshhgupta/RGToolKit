@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
 	
-	typealias ConstraintHandler = ([(ConstraintType, NSLayoutConstraint)]) -> Void
+	public typealias ConstraintHandler = ([(ConstraintType, NSLayoutConstraint)]) -> Void
 	
-	enum ConstraintType: Equatable {
+	public enum ConstraintType: Equatable {
 		case Top(Int, String?)
 		case Bottom(Int, String?)
 		case Left(Int, String?)
@@ -21,7 +21,7 @@ extension UIView {
 		case Width(Int)
 		case Height(Int)
 		
-		func visualFormat(viewName: String) -> String {
+		public func visualFormat(viewName: String) -> String {
 			switch self {
 			case .Top(let padding, let sibling):
 				if let sibling = sibling {
@@ -71,7 +71,7 @@ extension UIView {
 		}
 	}
 	
-	func add(
+	public func add(
 		contraintTypes: [ConstraintType] = [.Top(0, nil), .Bottom(0, nil), .Left(0, nil), .Right(0, nil)],
 		subview: UIView,
 		viewsDict: [String: UIView],

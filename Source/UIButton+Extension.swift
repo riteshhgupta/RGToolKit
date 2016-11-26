@@ -11,17 +11,17 @@ import UIKit
 
 extension UIButton {
 	
-	convenience init(frame: CGRect, tapHandler: TapHandler) {
+	public convenience init(frame: CGRect, tapHandler: TapHandler) {
 		self.init(frame: frame)
 		didTap = tapHandler
 	}
 	
-	convenience init(tapHandler: TapHandler) {
+	public convenience init(tapHandler: TapHandler) {
 		self.init()
 		didTap = tapHandler
 	}
 	
-	convenience init(type buttonType: UIButtonType, tapHandler: TapHandler) {
+	public convenience init(type buttonType: UIButtonType, tapHandler: TapHandler) {
 		self.init(type: buttonType)
 		didTap = tapHandler
 	}

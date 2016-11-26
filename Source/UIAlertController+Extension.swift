@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-typealias AlertControllerHandler = AnyType<(UIAlertAction) -> Void>
+public typealias AlertControllerHandler = AnyType<(UIAlertAction) -> Void>
 
-extension UIAlertController {
+public extension UIAlertController {
 	
-	struct Item {
+	public struct Item {
 		let title: String
 		let style: UIAlertActionStyle
 	}
@@ -32,7 +32,7 @@ extension UIAlertController {
 		return self
 	}
 	
-	func add(
+	public func add(
 		titles: [String],
 		ofStyle style: UIAlertActionStyle = .default,
 		completion: AlertControllerHandler? = nil) -> Self

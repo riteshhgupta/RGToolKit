@@ -13,7 +13,7 @@ private var didTapAssociativeKey = "didTapAssociativeKey"
 
 extension UIControl: Tapable {
 
-	var didTap: TapHandler? {
+	public var didTap: TapHandler? {
 		get { return objc_getAssociatedObject(self, &didTapAssociativeKey) as? TapHandler }
 		set {
 			addTarget(

@@ -13,27 +13,27 @@ private var didTapAssociativeKey = "didTapAssociativeKey"
 
 extension UIBarButtonItem {
 	
-	convenience init(image: UIImage?, style: UIBarButtonItemStyle) {
+	public convenience init(image: UIImage?, style: UIBarButtonItemStyle) {
 		self.init(image: image, style: style, target: nil, action: nil)
 	}
 	
 	@available(iOS 5.0, *)
-	convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, tapHandler: TapHandler? = nil) {
+	public convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, tapHandler: TapHandler? = nil) {
 		self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: nil, action: nil)
 		didTap = tapHandler
 	}
 	
-	convenience init(title: String?, style: UIBarButtonItemStyle, tapHandler: TapHandler? = nil) {
+	public convenience init(title: String?, style: UIBarButtonItemStyle, tapHandler: TapHandler? = nil) {
 		self.init(title: title, style: style, target: nil, action: nil)
 		didTap = tapHandler
 	}
 	
-	convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, tapHandler: TapHandler? = nil) {
+	public convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, tapHandler: TapHandler? = nil) {
 		self.init(barButtonSystemItem: systemItem, target: nil, action: nil)
 		didTap = tapHandler
 	}
 	
-	convenience init(customView: UIView, tapHandler: TapHandler? = nil) {
+	public convenience init(customView: UIView, tapHandler: TapHandler? = nil) {
 		self.init(customView: customView)
 		didTap = tapHandler
 	}
@@ -41,7 +41,7 @@ extension UIBarButtonItem {
 
 extension UIBarButtonItem: Tapable {
 	
-	var didTap: TapHandler? {
+	public var didTap: TapHandler? {
 		get { return objc_getAssociatedObject(self, &didTapAssociativeKey) as? TapHandler }
 		set {
 			target = self
