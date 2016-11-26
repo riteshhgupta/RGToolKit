@@ -9,9 +9,10 @@
 import Foundation
 
 class AnyType<T> {
-	let contains: T
 	
-	init(_ contains: T) {
-		self.contains = contains
+	let value: T
+	
+	init(_ value: T) {
+		self.value = value
 	}
 }

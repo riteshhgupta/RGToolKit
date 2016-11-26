@@ -50,7 +50,7 @@ extension UIBarButtonItem: Tapable {
 		}
 	}
 	
-	func _didTap(sender: UIBarButtonItem) { didTap?.contains() }
+	func _didTap(sender: UIBarButtonItem) { didTap?.value() }
 	
 }
 

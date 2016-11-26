@@ -25,7 +25,7 @@ extension UIAlertController {
 		let _ = items
 			.map { item in
 				UIAlertAction(title: item.title, style: item.style, handler: { action in
-					completion?.contains(action)
+					completion?.value(action)
 				})}
 			.map { addAction($0) }
 		
