@@ -17,8 +17,12 @@ public extension Collection where Iterator.Element: Equatable {
 	}
 	
 	public func before(_ element: Iterator.Element) -> Iterator.Element? {
-		guard let idx = index(of: element), index(idx, offsetBy: -1) >= startIndex else { return nil }
+		guard let idx = index(of: element), index(before: idx) >= startIndex else { return nil }
 		let previousIdx = index(idx, offsetBy: -1)
 		return self[previousIdx]
+	}
+	
+	public func index(before idx: Index) -> Index {
+		return index(idx, offsetBy: -1)
 	}
 }
