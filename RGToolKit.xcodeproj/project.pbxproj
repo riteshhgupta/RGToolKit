@@ -25,6 +25,8 @@
 		3DB7BB1A1DEA0A5400F73EBC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */; };
 		3DB7BB2A1DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */; };
 		3DB7BB2C1DEB3C8200F73EBC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */; };
+		3DDE87101DF17A9000D485D8 /* UIPageViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */; };
+		3DDE87161DF2EDA300D485D8 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE87151DF2EDA300D485D8 /* Constraint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Extension.swift"; sourceTree = "<group>"; };
 		3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Extension.swift"; sourceTree = "<group>"; };
+		3DDE87151DF2EDA300D485D8 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3D0B89F01DE9B8E500E0407C /* AnyType.swift */,
+				3DDE87151DF2EDA300D485D8 /* Constraint.swift */,
 				3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */,
 				3DB7BB171DEA08FE00F73EBC /* Extension.swift */,
 				3D0B89F31DE9B98400E0407C /* UIView+Extension.swift */,
@@ -107,6 +112,7 @@
 				3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */,
 				3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */,
 				3D5F20131DEDF53E0070BF47 /* UITableView+Extension.swift */,
+				3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7BB2A1DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift in Sources */,
+				3DDE87101DF17A9000D485D8 /* UIPageViewController+Extension.swift in Sources */,
+				3DDE87161DF2EDA300D485D8 /* Constraint.swift in Sources */,
 				3DB7BB1A1DEA0A5400F73EBC /* UIViewController+Extension.swift in Sources */,
 				3D5F20141DEDF53E0070BF47 /* UITableView+Extension.swift in Sources */,
 				3D0B8A191DE9BED300E0407C /* UIBarButtonItem+Helper.swift in Sources */,

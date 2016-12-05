@@ -12,21 +12,19 @@ import UIKit
 public typealias TapHandler = AnyType<() -> Void>
 
 public protocol Tapable {
-	
 	var didTap: TapHandler? { get set }
 }
 
 public protocol ContentViewProvider {
-	
 	var contentView: UIView? { get set }
 }
 
-protocol Describable	{
+public protocol Describable	{
 	var typeName: String { get }
 	static var typeName: String { get }
 }
 
-extension Describable {
+public extension Describable {
 	var typeName: String {
 		return String(describing: self)
 	}
@@ -35,9 +33,16 @@ extension Describable {
 	}
 }
 
-extension Describable where Self: NSObjectProtocol {
+public extension Describable where Self: NSObjectProtocol {
 	var typeName: String {
 		let type = type(of: self)
 		return String(describing: type)
 	}
+}
+
+extension NSObject: Describable {}
+
+public protocol Nibable {
+	var nib: UINib { get }
+	static var nib: UINib { get }
 }

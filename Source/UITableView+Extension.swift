@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-extension UITableView {
+public extension UITableView {
 	
-	func dequeueCell<T: UITableViewCell>(withIdentifier identifier: String, for indexPath: IndexPath) -> T {
+	public func dequeueCell<T: UITableViewCell>(withIdentifier identifier: String, for indexPath: IndexPath) -> T {
 		return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
 	}
 }
