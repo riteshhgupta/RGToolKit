@@ -18,13 +18,13 @@ extension UIControl: Tapable {
 		set {
 			addTarget(
 				self,
-				action: #selector(UIBarButtonItem._didTap(sender:)),
+				action: #selector(UIControl._didTap(sender:)),
 				for: .touchUpInside
 			)
 			objc_setAssociatedObject(self, &didTapAssociativeKey, newValue, .OBJC_ASSOCIATION_RETAIN)
 		}
 	}
 	
-	func _didTap(sender: UIBarButtonItem) { didTap?.value() }
+	func _didTap(sender: UIControl) { didTap?.value() }
 	
 }

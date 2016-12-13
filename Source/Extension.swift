@@ -8,6 +8,18 @@
 
 import Foundation
 
+public extension Collection where Iterator.Element == String {
+	
+	public func combineSeparatedBy(_ character: String) -> String {
+		let combiner: (String, String) -> String = {
+			$0 + $1 + character
+		}
+		var combined = reduce("", combiner)
+		combined.remove(at: combined.endIndex)
+		return combined
+	}
+}
+
 public extension Collection where Iterator.Element: Equatable {
 	
 	public func after(_ element: Iterator.Element) -> Iterator.Element? {

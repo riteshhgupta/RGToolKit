@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-public typealias ConstraintHandler = ([(Constraint, NSLayoutConstraint)]) -> Void
 
 public enum Constraint: Equatable {
+	
+	public typealias Handler = ([(Constraint, NSLayoutConstraint)]) -> Void
+	
 	case Top(Int, String?)
 	case Bottom(Int, String?)
 	case Left(Int, String?)

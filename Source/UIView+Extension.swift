@@ -23,11 +23,15 @@ extension UIView: Nibable {
 
 public extension UIView {
 	
+	public func removeSubview(_ condition: ((UIView) -> Bool)) {
+		subviews.filter { condition($0) }.first?.removeFromSuperview()
+	}
+	
 	public func add(
 		contraints: [Constraint] = [.Top(0, nil), .Bottom(0, nil), .Left(0, nil), .Right(0, nil)],
 		subview: UIView,
 		viewsDict: [String: UIView],
-		completionHandler: ConstraintHandler? = nil
+		completionHandler: Constraint.Handler? = nil
 		)
 	{
 		let subviewName = viewsDict.filter { $0.1 == subview }.first?.0
