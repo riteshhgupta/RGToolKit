@@ -23,6 +23,24 @@ extension UIView: Nibable {
 
 public extension UIView {
 	
+	public func sizeToFit(widthPadding: CGFloat = 0, heightPadding: CGFloat = 0) {
+		sizeToFit()
+		append(width: widthPadding)
+		append(height: heightPadding)
+	}
+	
+	public func append(width: CGFloat) {
+		var frame = self.frame
+		frame.size.width += width
+		self.frame = frame
+	}
+	
+	public func append(height: CGFloat) {
+		var frame = self.frame
+		frame.size.height += height
+		self.frame = frame
+	}
+	
 	public func removeSubview(_ condition: ((UIView) -> Bool)) {
 		subviews.filter { condition($0) }.first?.removeFromSuperview()
 	}
