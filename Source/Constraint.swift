@@ -31,7 +31,7 @@ public enum Constraint: Equatable {
 		case .Bottom(let padding, let sibling):
 			let paddingString = "-(" + "\(padding)" + ")-"
 			if let sibling = sibling {
-				return "V:" + "[\(viewName)]" + paddingString + "[\(sibling)]-(==0@1)|"
+				return "V:" + "[\(viewName)]" + paddingString + "[\(sibling)]-(==0@1)-|"
 			}
 			return "V:" + "[\(viewName)]" + paddingString + "|"
 		case .Left(let padding, let sibling):
@@ -41,7 +41,7 @@ public enum Constraint: Equatable {
 			return "H:" + "|-\(padding)-" + "[\(viewName)]"
 		case .Right(let padding, let sibling):
 			if let sibling = sibling {
-				return "H:" + "[\(viewName)]" + "-\(padding)-" + "[\(sibling)]-(==0@1)|"
+				return "H:" + "[\(viewName)]" + "-\(padding)-" + "[\(sibling)]-(==0@1)-|"
 			}
 			return "H:" + "[\(viewName)]" + "-\(padding)-|"
 		case .Width(let value):
