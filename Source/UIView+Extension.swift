@@ -16,7 +16,7 @@ extension UIView: Nibable {
 	public static var nib: UINib {
 		return UINib(nibName: typeName, bundle: nil)
 	}
-	public class func loadFromNib<T: UIView>() -> T? {
+	public static func loadFromNib<T: UIView>() -> T? {
 		return Bundle.main.loadNibNamed(typeName, owner: self, options: nil)?.first as? T
 	}
 }

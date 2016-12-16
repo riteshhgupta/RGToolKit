@@ -14,4 +14,7 @@ public extension UITableView {
 	public func dequeueCell<T: UITableViewCell>(withIdentifier identifier: String, for indexPath: IndexPath) -> T {
 		return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
 	}
+	public var firstVisibleSectionIndex: Int? {
+		return indexPathsForVisibleRows.flatMap { $0.first.flatMap { $0.section } }
+	}
 }

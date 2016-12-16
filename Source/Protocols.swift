@@ -45,4 +45,5 @@ extension NSObject: Describable {}
 public protocol Nibable {
 	var nib: UINib { get }
 	static var nib: UINib { get }
+	static func loadFromNib<T: UIView>() -> T?
 }
