@@ -11,19 +11,20 @@ import UIKit
 
 private var didTapAssociativeKey = "didTapAssociativeKey"
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
 	
-	public convenience init(image: UIImage?, style: UIBarButtonItemStyle) {
+	public convenience init(image: UIImage?, style: UIBarButtonItemStyle = .plain, tapHandler: TapHandler? = nil) {
 		self.init(image: image, style: style, target: nil, action: nil)
+		didTap = tapHandler
 	}
 	
 	@available(iOS 5.0, *)
-	public convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, tapHandler: TapHandler? = nil) {
+	public convenience init(image: UIImage?, landscapeImagePhone: UIImage? = nil, style: UIBarButtonItemStyle = .plain, tapHandler: TapHandler? = nil) {
 		self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: nil, action: nil)
 		didTap = tapHandler
 	}
 	
-	public convenience init(title: String?, style: UIBarButtonItemStyle, tapHandler: TapHandler? = nil) {
+	public convenience init(title: String?, style: UIBarButtonItemStyle = .plain, tapHandler: TapHandler? = nil) {
 		self.init(title: title, style: style, target: nil, action: nil)
 		didTap = tapHandler
 	}
