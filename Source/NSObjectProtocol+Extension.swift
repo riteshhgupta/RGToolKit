@@ -8,3 +8,10 @@
 
 import Foundation
 import UIKit
+
+public extension NSObjectProtocol {
+	
+	func map<T>() -> T? {
+		return self as? T
+	}
+}

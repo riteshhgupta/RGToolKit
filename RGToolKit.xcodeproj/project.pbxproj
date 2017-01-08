@@ -28,6 +28,7 @@
 		3DB7BB1A1DEA0A5400F73EBC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */; };
 		3DB7BB2A1DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */; };
 		3DB7BB2C1DEB3C8200F73EBC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */; };
+		3DD63E021E1FA90000167F9C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD63E011E1FA90000167F9C /* Global.swift */; };
 		3DDE87101DF17A9000D485D8 /* UIPageViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */; };
 		3DDE87161DF2EDA300D485D8 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE87151DF2EDA300D485D8 /* Constraint.swift */; };
 		3DF2697F1DF6D1D20057B85E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2697E1DF6D1D20057B85E /* String+Extension.swift */; };
@@ -58,6 +59,7 @@
 		3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Extension.swift"; sourceTree = "<group>"; };
 		3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		3DD63E011E1FA90000167F9C /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Extension.swift"; sourceTree = "<group>"; };
 		3DDE87151DF2EDA300D485D8 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		3DF2697E1DF6D1D20057B85E /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				3D0B89F01DE9B8E500E0407C /* AnyType.swift */,
+				3DD63E011E1FA90000167F9C /* Global.swift */,
 				3DF85F121DF6EB6700FECC7D /* UILabel+Extension.swift */,
 				3DF2697E1DF6D1D20057B85E /* String+Extension.swift */,
 				3DDE87151DF2EDA300D485D8 /* Constraint.swift */,
@@ -159,7 +162,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Ritesh Gupta";
 				TargetAttributes = {
 					3D0B89D81DE9A77000E0407C = {
@@ -212,6 +215,7 @@
 				3DDE87161DF2EDA300D485D8 /* Constraint.swift in Sources */,
 				3DB7BB1A1DEA0A5400F73EBC /* UIViewController+Extension.swift in Sources */,
 				3D63DF461DFC6EB70016D0DD /* Typealias+Helper.swift in Sources */,
+				3DD63E021E1FA90000167F9C /* Global.swift in Sources */,
 				3D5F20141DEDF53E0070BF47 /* UITableView+Extension.swift in Sources */,
 				3D0B8A191DE9BED300E0407C /* UIBarButtonItem+Helper.swift in Sources */,
 				3D0B89F11DE9B8E500E0407C /* UIAlertController+Extension.swift in Sources */,
@@ -272,6 +276,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -321,6 +326,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

@@ -7,5 +7,3 @@
 //
 
 import Foundation
-
-public typealias Closure<T> = (T) -> Void

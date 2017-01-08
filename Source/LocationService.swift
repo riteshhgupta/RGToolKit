@@ -17,7 +17,7 @@ public class LocationService: NSObject {
 		let status: CLAuthorizationStatus
 	}
 	
-	public var locationHandler: Closure<Data>?
+	public var locationHandler: Closure<Data, Void>?
 	
 	let cllocationManager: CLLocationManager = CLLocationManager()
 	let hasBackgroundPermission: Bool
@@ -38,7 +38,7 @@ public class LocationService: NSObject {
 		return (authStatus == .authorizedWhenInUse || authStatus == .authorizedAlways)
 	}
 	
-	public func currentLocation(_ handler: @escaping Closure<Data>) {
+	public func currentLocation(_ handler: @escaping Closure<Data, Void>) {
 		locationHandler = handler
 		startFetchingLocation()
 	}
@@ -101,7 +101,7 @@ extension LocationService: CLLocationManagerDelegate {
 }
 
 extension LocationService {
-	func fetchAddress(forLocation location: CLLocation, handler: @escaping Closure<String>) {
+	func fetchAddress(forLocation location: CLLocation, handler: @escaping Closure<String, Void>) {
 		CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
 			var values = [String]()
 			let addressDict = placemarks?[0].addressDictionary

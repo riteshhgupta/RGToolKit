@@ -39,3 +39,24 @@ public extension Collection where Iterator.Element: Equatable {
 		return index(idx, offsetBy: -1)
 	}
 }
+
+public extension Array  {
+	
+	public mutating func remove(_ handler: (Iterator.Element) -> Bool) {
+		guard let idx = index(where: (handler)) else { return }
+		remove(at: idx)
+	}
+	
+	public func removed(_ handler: (Iterator.Element) -> Bool) -> Array {
+		guard let idx = index(where: (handler)) else { return self }
+		var items = self
+		items.remove(at: idx)
+		return items
+	}
+	
+	public func appended(_ items: Array) -> Array {
+		var newItems = self
+		newItems.append(contentsOf: items)
+		return newItems
+	}
+}
