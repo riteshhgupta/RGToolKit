@@ -9,36 +9,33 @@
 import Foundation
 import UIKit
 
-public typealias AlertControllerHandler = AnyType<(UIAlertAction) -> Void>
-
 public extension UIAlertController {
 	
-	public struct Item {
-		let title: String
-		let style: UIAlertActionStyle
-	}
+	public typealias Item = (String, UIAlertActionStyle)
 	
-	fileprivate func add(
+	@discardableResult public func add(
 		items: [Item],
-		completion: AlertControllerHandler? = nil) -> Self
+		completion: Closure<UIAlertAction, Void>? = nil) -> Self
 	{
 		let _ = items
 			.map { item in
-				UIAlertAction(title: item.title, style: item.style, handler: { action in
-					completion?.value(action)
+				UIAlertAction(title: item.0, style: item.1, handler: { action in
+					completion?(action)
 				})}
 			.map { addAction($0) }
-		
 		return self
 	}
 	
-	public func add(
+	@discardableResult public func add(
 		titles: [String],
+		cancelTitle: String? = nil,
 		ofStyle style: UIAlertActionStyle = .default,
-		completion: AlertControllerHandler? = nil) -> Self
+		completion: Closure<UIAlertAction, Void>? = nil) -> Self
 	{
-		let _items = titles.map { UIAlertController.Item(title: $0, style: style)  }
+		var _items = titles.map { ($0, style) }
+		if let title = cancelTitle {
+			_items.append( (title, .cancel) )
+		}
 		return add(items: _items, completion: completion)
 	}
-
 }
