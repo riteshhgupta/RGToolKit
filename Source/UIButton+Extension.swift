@@ -16,7 +16,7 @@ extension UIButton {
 		didTap = tapHandler
 	}
 	
-	public convenience init(tapHandler: TapHandler) {
+	public convenience init(_ tapHandler: TapHandler) {
 		self.init()
 		didTap = tapHandler
 	}

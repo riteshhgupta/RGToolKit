@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIView: Nibable {
+	
 	public var nib: UINib {
 		return UINib(nibName: typeName, bundle: nil)
 	}

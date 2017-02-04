@@ -19,7 +19,7 @@ extension UIControl: Tapable {
 			addTarget(
 				self,
 				action: #selector(UIControl._didTap(sender:)),
-				for: .touchUpInside
+				for: [.touchUpInside]
 			)
 			objc_setAssociatedObject(self, &didTapAssociativeKey, newValue, .OBJC_ASSOCIATION_RETAIN)
 		}

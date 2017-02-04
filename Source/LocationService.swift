@@ -10,27 +10,43 @@ import Foundation
 import UIKit
 import CoreLocation
 
-public class LocationService: NSObject {
+public protocol LocationServiceProtocol {
 
+	var needBackgroundPermission: Bool { get }
+	var needContinousUpdates: Bool { get }
+	var allowsBackgroundLocationUpdates: Bool { get }
+	var shouldMonitorSignificantChanges: Bool { get }
+	var distanceFilter: CLLocationDistance? { get }
+}
+
+public extension LocationServiceProtocol {
+	
+	var needBackgroundPermission: Bool { return false }
+	var needContinousUpdates: Bool { return false }
+	var allowsBackgroundLocationUpdates: Bool { return false }
+	var shouldMonitorSignificantChanges: Bool { return false }
+	var distanceFilter: CLLocationDistance? { return nil }
+}
+
+extension LocationService: LocationServiceProtocol {}
+
+open class LocationService: NSObject {
+	
 	public struct Data {
-		var location: CLLocation?
-		let status: CLAuthorizationStatus
+		public var location: CLLocation?
+		public let status: CLAuthorizationStatus
 	}
 	
 	public var locationHandler: Closure<Data, Void>?
 	
-	let cllocationManager: CLLocationManager = CLLocationManager()
-	let hasBackgroundPermission: Bool
-	let shouldUpdateContinously: Bool
+	public let cllocationManager: CLLocationManager
 	
-	public init(withBackgroundPermission permission: Bool, shouldUpdateContinously should: Bool = true) {
-		self.hasBackgroundPermission = permission
-		self.shouldUpdateContinously = should
-		
+	public override init() {
+		self.cllocationManager = CLLocationManager()
 		super.init()
-		
-		self.cllocationManager.delegate = self
-		self.cllocationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+		distanceFilter.then { self.cllocationManager.distanceFilter = $0 }
+		cllocationManager.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates
+		startLocationUpdates()
 	}
 	
 	public var permissionAllowed: Bool {
@@ -44,7 +60,24 @@ public class LocationService: NSObject {
 	}
 }
 
-extension LocationService {
+fileprivate extension LocationService {
+	
+	func startLocationUpdates() {
+		cllocationManager.delegate = self
+		if shouldMonitorSignificantChanges {
+			cllocationManager.startMonitoringSignificantLocationChanges()
+		} else {
+			cllocationManager.startUpdatingLocation()
+		}
+	}
+	
+	func stopLocationUpdates() {
+		if shouldMonitorSignificantChanges {
+			cllocationManager.stopMonitoringSignificantLocationChanges()
+		} else {
+			cllocationManager.stopUpdatingLocation()
+		}
+	}
 	
 	func startFetchingLocation() {
 		let authStatus = CLLocationManager.authorizationStatus()
@@ -54,12 +87,12 @@ extension LocationService {
 		case .restricted, .denied:
 			handleLocationFetchFailure()
 		case .authorizedWhenInUse, .authorizedAlways:
-			cllocationManager.startUpdatingLocation()
+			startLocationUpdates()
 		}
 	}
-
+	
 	func askForPermission() {
-		if hasBackgroundPermission {
+		if needBackgroundPermission {
 			cllocationManager.requestAlwaysAuthorization()
 		} else {
 			cllocationManager.requestWhenInUseAuthorization()
@@ -74,14 +107,15 @@ extension LocationService {
 }
 
 extension LocationService: CLLocationManagerDelegate {
+	
 	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		if let location = locations.first {
+		if let location = locations.first, location.timestamp.without([.second]) >= Date().without([.second]) {
 			let status = CLLocationManager.authorizationStatus()
 			let data = LocationService.Data(location: location, status: status)
 			locationHandler?(data)
 			
-			if !shouldUpdateContinously {
-				manager.stopUpdatingLocation()
+			if !needContinousUpdates {
+				stopLocationUpdates()
 				locationHandler = nil
 			}
 		}
@@ -89,32 +123,13 @@ extension LocationService: CLLocationManagerDelegate {
 	
 	public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		if status == .authorizedAlways || status == .authorizedWhenInUse {
-			manager.startUpdatingLocation()
+			startLocationUpdates()
 		} else {
-			manager.stopUpdatingLocation()
+			stopLocationUpdates()
 		}
 	}
 	
 	public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		handleLocationFetchFailure()
-	}
-}
-
-extension LocationService {
-	func fetchAddress(forLocation location: CLLocation, handler: @escaping Closure<String, Void>) {
-		CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
-			var values = [String]()
-			let addressDict = placemarks?[0].addressDictionary
-			values += addressDict?["SubLocality"]
-			values += addressDict?["City"]
-			let value = values.combineSeparatedBy(", ")
-			handler(value)
-		})
-	}
-}
-
-func +=(left: inout [String], right: Any?) {
-	if let right = right as? String {
-		left.append(right)
 	}
 }

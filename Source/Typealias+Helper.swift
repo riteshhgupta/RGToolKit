@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+public typealias Closure<P, Q> = ((P) -> Q)
