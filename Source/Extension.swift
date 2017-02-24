@@ -42,17 +42,41 @@ public extension Collection where Iterator.Element: Equatable {
 
 public extension Array  {
 	
-	public mutating func remove(_ handler: (Iterator.Element) -> Bool) {
-		guard let idx = index(where: (handler)) else { return }
+	// it removes the first element that matches the handler condition on the array itself
+	@discardableResult
+	public mutating func remove(_ handler: (Element) -> Bool) -> Element? {
+		guard let idx = index(where: handler) else { return nil }
+		let item = self[idx]
 		remove(at: idx)
+		return item
 	}
 	
-	public func removed(_ handler: (Iterator.Element) -> Bool) -> Array {
-		guard let idx = index(where: (handler)) else { return self }
+	// it removes the first element that matches the handler condition & returns a new array
+	public func removed(_ handler: (Element) -> Bool) -> Array {
 		var items = self
-		items.remove(at: idx)
+		items.remove(handler)
 		return items
 	}
+}
+
+public extension Array {
+	
+	// it removes all the elements that matches the handler condition on the array itself
+	public mutating func removeRecursively(_ handler: (Element) -> Bool) {
+		guard let idx = index(where: handler) else { return }
+		remove(at: idx)
+		removeRecursively(handler)
+	}
+	
+	// it removes all the elements that matches the handler condition & returns a new array
+	public func removedRecursively(_ handler: (Element) -> Bool) -> Array {
+		var items = self
+		items.removeRecursively(handler)
+		return items
+	}
+}
+
+public extension Array  {
 	
 	public func appended(_ items: Array) -> Array {
 		var newItems = self

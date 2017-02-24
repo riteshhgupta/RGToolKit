@@ -11,7 +11,8 @@ import UIKit
 
 open class ImagePickerService: NSObject {
 	
-	public typealias ImageHandler = Closure<Result, Void>
+	public typealias ImageResult = Result<UIImage, ImageError>
+	public typealias ImageHandler = Closure<ImageResult, Void>
 	
 	let picker = UIImagePickerController()
 	let configuration: Configuration
@@ -38,17 +39,17 @@ open class ImagePickerService: NSObject {
 
 extension ImagePickerService: UIImagePickerControllerDelegate {
 	
-	func sendResult(_ result: Result) {
+	func sendResult(_ result: ImageResult) {
 		imageHandler?(result)
 		picker.dismiss(animated: true, completion: nil)
 	}
 	public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-		sendResult(Result.Error(.userCancellation))
+		sendResult(Result.error(.userCancellation))
 	}
 	public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		let mediaKey = configuration.allowsEditing ? UIImagePickerControllerEditedImage : UIImagePickerControllerOriginalImage
-		guard let image = info[mediaKey] as? UIImage else { sendResult(Result.Error(.extraction)); return }
-		sendResult(Result.image(image))
+		guard let image = info[mediaKey] as? UIImage else { sendResult(Result.error(.extraction)); return }
+		sendResult(Result.value(image))
 	}
 }
 
@@ -70,13 +71,6 @@ extension ImagePickerService {
 	}
 }
 
-extension ImagePickerService {
-	
-	public enum Result {
-		case image(UIImage)
-		case Error(ImageError)
-	}
-}
 
 extension ImagePickerService {
 	

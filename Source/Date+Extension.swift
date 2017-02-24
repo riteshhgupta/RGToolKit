@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 	
-	func without(_ components: [Calendar.Component]) -> Date {
+	public func without(_ components: [Calendar.Component]) -> Date {
 		let calendar = Calendar.current
 		let rawComponents: [Calendar.Component] = [.year, .month, .day, .hour, .minute]
 		let filteredComponents = Set(rawComponents.filter { c in !components.filter { $0 == c }.isEmpty })

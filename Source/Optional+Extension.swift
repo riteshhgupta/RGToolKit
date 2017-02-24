@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Optional {
+public extension Optional {
 	
-	func then(_ handler: Closure<Wrapped, Void>) {
+	public func then(_ handler: Closure<Wrapped, Void>) {
 		switch self {
 		case .none: break
 		case .some(let value): handler(value)
