@@ -83,4 +83,8 @@ public extension Array  {
 		newItems.append(contentsOf: items)
 		return newItems
 	}
+	
+	public func firstFound(_ condition: (Element) -> Bool) -> Element? {
+		return filter(condition).first
+	}
 }
