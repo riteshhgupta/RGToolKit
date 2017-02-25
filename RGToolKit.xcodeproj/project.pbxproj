@@ -32,6 +32,7 @@
 		3DB7BB1A1DEA0A5400F73EBC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */; };
 		3DB7BB2A1DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */; };
 		3DB7BB2C1DEB3C8200F73EBC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */; };
+		3DB9D98C1E61684000F1693D /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D98B1E61684000F1693D /* KeyboardHandler.swift */; };
 		3DD63E021E1FA90000167F9C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD63E011E1FA90000167F9C /* Global.swift */; };
 		3DDE87101DF17A9000D485D8 /* UIPageViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */; };
 		3DDE87161DF2EDA300D485D8 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE87151DF2EDA300D485D8 /* Constraint.swift */; };
@@ -67,6 +68,7 @@
 		3DB7BB191DEA0A5400F73EBC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3DB7BB291DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Extension.swift"; sourceTree = "<group>"; };
 		3DB7BB2B1DEB3C8200F73EBC /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		3DB9D98B1E61684000F1693D /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		3DD63E011E1FA90000167F9C /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		3DDE870F1DF17A9000D485D8 /* UIPageViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Extension.swift"; sourceTree = "<group>"; };
 		3DDE87151DF2EDA300D485D8 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3D0B89F01DE9B8E500E0407C /* AnyType.swift */,
+				3DB9D98B1E61684000F1693D /* KeyboardHandler.swift */,
 				3DD63E011E1FA90000167F9C /* Global.swift */,
 				3DDE87151DF2EDA300D485D8 /* Constraint.swift */,
 				3D0B8A131DE9BD8400E0407C /* Protocols.swift */,
@@ -240,6 +243,7 @@
 				3D24F3C41E45E6BB0068392B /* Date+Extension.swift in Sources */,
 				3DB7BB2A1DEB3C1400F73EBC /* NSObjectProtocol+Extension.swift in Sources */,
 				3D24F3C21E45D74C0068392B /* Optional+Extension.swift in Sources */,
+				3DB9D98C1E61684000F1693D /* KeyboardHandler.swift in Sources */,
 				3DDE87101DF17A9000D485D8 /* UIPageViewController+Extension.swift in Sources */,
 				3D25F0791DFBF0E9006843B2 /* LocationService.swift in Sources */,
 				3DA549A31E0028C800DED14C /* UIColor+Extension.swift in Sources */,
