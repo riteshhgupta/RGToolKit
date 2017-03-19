@@ -20,6 +20,8 @@ public enum Constraint: Equatable {
 	case Right(Int, String?)
 	case Width(Int)
 	case Height(Int)
+	case CenterX(String)
+	case CenterY(String)
 	
 	func visualFormat(viewName: String) -> String {
 		switch self {
@@ -48,23 +50,23 @@ public enum Constraint: Equatable {
 			return "H:[\(viewName)(\(value))]"
 		case .Height(let value):
 			return "V:[\(viewName)(\(value))]"
+		case .CenterX(let superView):
+			return "H:[\(superView)]-(<=1)-[\(viewName)]"
+		case .CenterY(let superView):
+			return "V:[\(superView)]-(<=1)-[\(viewName)]"
+		}
+	}
+	
+	var options: NSLayoutFormatOptions {
+		switch self {
+		case .CenterY: return .alignAllCenterX
+		case .CenterX: return .alignAllCenterY
+		default: return []
 		}
 	}
 	
 	public static func == (lhs: Constraint, rhs: Constraint) -> Bool {
 		switch (lhs, rhs) {
-		case (.Top(_), .Top(_)):
-			return true
-		case (.Bottom(_), .Bottom(_)):
-			return true
-		case (.Left(_), .Left(_)):
-			return true
-		case (.Right(_), .Right(_)):
-			return true
-		case (.Height(_), .Height(_)):
-			return true
-		case (.Width(_), .Width(_)):
-			return true
 		default:
 			return false
 		}

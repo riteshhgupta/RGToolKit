@@ -55,11 +55,12 @@ public extension UIView {
 	{
 		let subviewName = viewsDict.filter { $0.1 == subview }.first?.0
 		guard let name = subviewName else { return }
+		
 		let constraintMapper: (Constraint) -> (Constraint, NSLayoutConstraint) = {
 			let format = $0.visualFormat(viewName: name)
 			let constraint = NSLayoutConstraint.constraints(
 				withVisualFormat: format,
-				options: [],
+				options: $0.options,
 				metrics: nil,
 				views: viewsDict
 			)
