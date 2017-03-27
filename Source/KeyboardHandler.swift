@@ -11,8 +11,9 @@ import UIKit
 
 public protocol KeyboardHandler {
 	
-	var bottomConstraint: NSLayoutConstraint { get }
-	var bottomConstraintDefaultValue: CGFloat { get }
+	var constraint: NSLayoutConstraint { get }
+	var dismissValue: CGFloat { get }
+	var initialValue: CGFloat { get }
 }
 
 public extension KeyboardHandler {
@@ -31,7 +32,7 @@ public extension KeyboardHandler where Self: UIViewController {
 			queue: nil) { [weak self] (notification) in
 				guard let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect else { return }
 				self.then {
-					$0.bottomConstraint.constant = keyboardSize.height
+					$0.constraint.constant = keyboardSize.height - $0.initialValue
 					$0.view.layoutIfNeeded()
 				}
 		}
@@ -40,7 +41,7 @@ public extension KeyboardHandler where Self: UIViewController {
 			object: nil,
 			queue: nil) { [weak self] _ in
 				self.then {
-					$0.bottomConstraint.constant = $0.bottomConstraintDefaultValue
+					$0.constraint.constant = $0.dismissValue
 					$0.view.layoutIfNeeded()
 				}
 		}
