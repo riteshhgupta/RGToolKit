@@ -27,7 +27,7 @@ public extension KeyboardHandler where Self: UIViewController {
 	
 	public func registerForKeyboardNotifications() {
 		NotificationCenter.default.addObserver(
-			forName: .UIKeyboardDidShow,
+			forName: .UIKeyboardWillShow,
 			object: nil,
 			queue: nil) { [weak self] (notification) in
 				guard let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect else { return }
