@@ -2,4 +2,12 @@
 
 Made with ♥️ in **Swift** for **Swifters**!
 
-Its a collection of some awesome swifty functions, extensions, properties which could speed up your Swift development! Its **not** about good coding practices or design patterns but simply a bunch of **tools** 🛠️ that could make your job easier 🚀
+### About
+Its a collection of a lot of awesome swifty utility **functions**, **extensions**, **properties**, **closures** which could speed up your Swift development! Its **not** about good coding practices or design patterns but simply a bunch of **tools** 🛠️ that could make your job easier 🚀
+
+### Installation
+To integrate **RGToolKit** into your Xcode project using **CocoaPods**, specify it in your Podfile:
+
+```
+pod 'RGToolKit', :git => 'https://github.com/riteshhgupta/RGToolKit.git'
+```
