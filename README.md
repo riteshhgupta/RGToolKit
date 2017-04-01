@@ -1,7 +1,5 @@
 ## RGToolKit
 
-Made with ♥️ in **Swift** for **Swifters**!
-
 ### About
 Its a collection of a lot of awesome swifty utility **functions**, **extensions**, **properties**, **closures** which could speed up your Swift development! Its **not** about good coding practices or design patterns but simply a bunch of **tools** 🛠️ that could make your job easier 🚀
 
